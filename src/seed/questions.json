@@ -1,0 +1,21 @@
+[
+  {
+    "text": "How energetic are you feeling today?",
+    "options": [
+      { "text": "Very energetic", "vibe": "energetic" },
+      { "text": "Somewhat energetic", "vibe": "positive" },
+      { "text": "Neutral", "vibe": "neutral" },
+      { "text": "Low energy", "vibe": "calm" }
+    ]
+  },
+  {
+    "text": "Pick a weekend activity:",
+    "options": [
+      { "text": "Hiking", "vibe": "energetic" },
+      { "text": "Reading a book", "vibe": "calm" },
+      { "text": "Party with friends", "vibe": "energetic" },
+      { "text": "Netflix & chill", "vibe": "neutral" }
+    ]
+  }
+  
+]
