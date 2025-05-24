@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VibeCheck Quiz
 
-## Getting Started
+A real-time, interactive quiz app to discover your vibe and see how the world is vibing—live!  
+Built with **Next.js**, **Tailwind CSS**, **Framer Motion**, **MongoDB**, and **Socket.IO**.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 🎨 **Modern UI**: Responsive, animated, and theme-aware design.
+- ⚡ **Real-Time Dashboard**: See live vibe stats update instantly.
+- 🧠 **Randomized Quiz**: Each user gets 10 random questions from a large pool.
+- ⏱️ **Quiz Timer**: 10 seconds per question, auto-advance with default vibe if unanswered.
+- 📊 **Live Results**: View your vibe and global stats after submitting.
+- 🌗 **Dark Mode**: Seamless light/dark theme toggle.
+- 🌐 **MongoDB Atlas**: Scalable cloud database for questions and submissions.
+
+---
+
+## 🛠️ Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [MongoDB + Mongoose](https://mongoosejs.com/)
+- [Socket.IO](https://socket.io/)
+- [Chart.js](https://www.chartjs.org/) (for results visualization)
+
+---
+
+## 📦 Getting Started
+
+### 1. **Clone the Repository**
+
+```bash
+git clone https://github.com/yourusername/vibe-check-quiz.git
+cd vibe-check-quiz
+```
+
+### 2. **Install Dependencies**
+
+```bash
+npm install
+```
+
+### 3. **Set Up Environment Variables**
+
+Create a `.env.local` file in the root:
+
+```
+MONGODB_URI=your_mongodb_atlas_connection_string
+# Add other provider secrets as needed
+```
+
+### 4. **Seed the Database with Questions**
+
+Edit `scripts/seed.ts` and add your questions (or use the provided examples).  
+Then run:
+
+```bash
+npx tsx scripts/seed.ts
+```
+
+### 5. **Run the Development Server**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚡ Real-Time Features (Socket.IO)
 
-## Learn More
+> **Note:** Vercel serverless functions do **not** support WebSockets.  
+> For production, deploy your Socket.IO backend on [Render](https://render.com/), [Railway](https://railway.app/), or similar.  
+> Update your frontend to connect to the deployed Socket.IO server.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏗️ Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/           # Next.js app routes (pages, API, etc.)
+  components/    # Reusable React components (Header, QuestionCard, etc.)
+  models/        # Mongoose models (Question, Submission, User)
+  scripts/       # Seed scripts (seed.ts, questions.json)
+  lib/           # DB connection, helpers
+public/          # Static assets
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Customization
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Add More Questions:**  
+  Edit `scripts/questions.json` or `scripts/seed.ts` and re-seed your DB.
+- **Change Vibe Logic:**  
+  Update vibe calculation in `quiz/page.tsx` and `result/page.tsx`.
+- **Add Providers:**  
+  Configure more OAuth providers in `api/auth/[...nextauth]/route.ts`.
+
+---
+
+
+
+## 🖥️ Deployment
+
+### Deploy Frontend (Vercel)
+
+1. Push your code to GitHub.
+2. Import the repo in [Vercel](https://vercel.com/).
+3. Add environment variables in the Vercel dashboard.
+4. Deploy!
+
+### Deploy Real-Time Backend (Render/Railway)
+
+1. Create a simple Node.js + Socket.IO server (see `/server.js` example).
+2. Deploy to [Render](https://render.com/) or [Railway](https://railway.app/).
+3. Update your frontend to connect to the backend’s public URL.
+
+---
+
+## 🙏 Credits
+
+- Built by [Vivek Bhadauriya](https://github.com/vivekbhadauriya)
+- Inspired by the need to check vibes, live!
+
+---
+
+## 📄 License
+
+MIT License
+
+---
+
+**Enjoy discovering your vibe!**
